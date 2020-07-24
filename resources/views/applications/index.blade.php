@@ -1,12 +1,12 @@
 @extends('backend.layouts.master')
 
-@section('title', 'List of Posted Job')
+@section('title', 'List of Online Application')
 @section('header_scripts')
     <link rel="stylesheet" type="text/css"
           href="{{ asset('backend/vendors/datatables/css/dataTables.bootstrap.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/custom_css/datatables_custom.css')}}">
 @endsection
-@section('content_header', 'List of Posted Job')
+@section('content_header', 'List of Online Application')
 
 @section('content')
 
@@ -15,7 +15,7 @@
             <div class="panel pages">
                 <div class="panel-heading  clearfix">
                     <h3 class="panel-title">
-                        @include('jobs.partial.addButton')
+                        @include('applications.partial.listButton')
                     </h3>
                 </div>
 
@@ -24,11 +24,15 @@
                         <thead>
                         <tr>
                             <th>Institute Name</th>
-                            <th>Hiring Date</th>
-                            <th>Salary Range (Taka)</th>
-                            <th>Created Post</th>
-                            @if( $templateUser->is_system_user || in_array('change_jobs', $templatePermissions) ||
-                            in_array('view_jobs', $templatePermissions) || in_array('delete_jobs', $templatePermissions) )
+                            <th>Location</th>
+                            <th>No. of Student</th>
+                            <th>Days/Week</th>
+                            <th>Category</th>
+                            <td>Subject</td>
+                            <td>Additional Requirement</td>
+                            <td>Status</td>
+                            @if( $templateUser->is_system_user || in_array('change_online_application', $templatePermissions) ||
+                            in_array('view_online_application', $templatePermissions) || in_array('delete_online_application', $templatePermissions) )
 
                                 <th>Action</th>
 
@@ -37,35 +41,53 @@
                         </thead>
 
                         <tbody>
-                        @if(!empty($jobs))
-                            @foreach($jobs as $job)
+                        @if(!empty($applications))
+                            @foreach($applications as $application)
                                 <tr>
-                                    <td>{{ $job->institute_name }}</td>
-                                    <td>{{ $job->hiring_time->format('Y-m-d')}}</td>
-                                    <td>{{ $job->salary }}</td>
-                                    <td>{{ $job->created_at }}</td>
+                                    <td>{{ $application->job->institute_name }}</td>
+                                    <td>{{ $application->job->job_location }}</td>
+                                    <td>{{ $application->job->no_of_students }}</td>
+                                    @if($application->job->day_per_week==1)
+                                        <td>1 Day/Week</td>
+                                    @elseif($application->job->day_per_week==2)
+                                        <td>2 Day/Week</td>
+                                    @elseif($application->job->day_per_week==3)
+                                        <td>3 Day/Week</td>
+                                    @elseif($application->job->day_per_week==4)
+                                        <td>4 Day/Week</td>
+                                    @elseif($application->job->day_per_week==5)
+                                        <td>5 Day/Week</td>
+                                    @elseif($application->job->day_per_week==6)
+                                        <td>6 Day/Week</td>
+                                    @elseif($application->job->day_per_week==7)
+                                        <td>7 Day/Week</td>
+                                    @endif
+                                    @if($application->job->student_category==1)
+                                       <td> Bangla Medium</td>
+                                    @elseif($application->job->student_category==2)
+                                        <td>English Medium</td>>
+                                    @elseif($application->job->student_category==3)
+                                        <td>English Version</td>
+                                    @endif
+                                    <td>{{ $application->job->subject_list }}</td>
+                                    <td>{{ $application->job->requirements }}</td>
+                                    <td>Pending</td>
 
-                                    @if( $templateUser->is_system_user || in_array('view_jobs', $templatePermissions)
-                                    || in_array('delete_jobs', $templatePermissions)
-                                    || in_array('change_jobs', $templatePermissions))
+                                    @if( $templateUser->is_system_user
+                                    || in_array('delete_online_application', $templatePermissions)
+                                    || in_array('change_online_application', $templatePermissions))
 
                                         <td>
-                                            @if( $templateUser->is_system_user || in_array('change_jobs', $templatePermissions) )
-                                                <a href="{{url('/jobs/'. $job->id . '/edit')}}"
-                                                   class="btn btn-xs btn-primary mb-2">
-                                                    <i class="ace-icon fa fa-pencil"></i> Edit
-                                                </a>
-                                            @endif
-                                            @if( $templateUser->is_system_user || in_array('view_jobs', $templatePermissions) )
-                                                <a href="{{url('/jobs/'. $job->id . '/view')}}"
+                                            @if( $templateUser->is_system_user || in_array('view_online_application', $templatePermissions) )
+                                                <a href="{{url('/online_application/'. $application->id . '/view')}}"
                                                    class="btn btn-xs btn-primary mb-2">
                                                     <i class="ace-icon fa fa-eye"></i> Details
                                                 </a>
                                             @endif
 
 
-                                            @if( $templateUser->is_system_user || in_array('change_jobs', $templatePermissions) )
-                                                <form action="{{url('/jobs', ['id'=>$job->id])}}" method="POST"
+                                            @if( $templateUser->is_system_user || in_array('delete_online_application', $templatePermissions) )
+                                                <form action="{{url('/online_application', ['id'=>$application->id])}}" method="POST"
                                                       onsubmit="return confirm('Are you sure?')"
                                                       style="display: inline-block;">
                                                     @method('DELETE')

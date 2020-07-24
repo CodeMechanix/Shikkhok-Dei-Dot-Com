@@ -11,8 +11,7 @@
                 <div class="panel pages">
                     <div class="panel-heading  clearfix">
                         <h3 class="panel-title">
-                            @include('jobs.partial.listButton')
-                            @include('jobs.partial.addButton')
+                            @include('applications.partial.listButton')
                         </h3>
                     </div>
                     <div class="panel-body">
