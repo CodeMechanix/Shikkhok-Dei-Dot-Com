@@ -79,7 +79,7 @@
 
                                         <td>
                                             @if( $templateUser->is_system_user || in_array('view_online_application', $templatePermissions) )
-                                                <a href="{{url('/online_application/'. $application->id . '/view')}}"
+                                                <a href="{{url('/online_application/'. $application->job_id . '/view')}}"
                                                    class="btn btn-xs btn-primary mb-2">
                                                     <i class="ace-icon fa fa-eye"></i> Details
                                                 </a>
@@ -87,7 +87,7 @@
 
 
                                             @if( $templateUser->is_system_user || in_array('delete_online_application', $templatePermissions) )
-                                                <form action="{{url('/online_application', ['id'=>$application->id])}}" method="POST"
+                                                <form action="{{url('/delete_online_application', ['id'=>$application->id])}}" method="POST"
                                                       onsubmit="return confirm('Are you sure?')"
                                                       style="display: inline-block;">
                                                     @method('DELETE')

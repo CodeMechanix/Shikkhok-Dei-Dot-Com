@@ -14,7 +14,8 @@
                             @include('applications.partial.listButton')
                         </h3>
                     </div>
-                    <div class="panel-body">
+                    @if($jobs)
+                        <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -130,10 +131,11 @@
                                     <div class="form-group">
                                         <label for="tutor_gender" class="control-label">Tutor Gender
                                             <sup class="text-danger">*</sup></label>
-                                        <select name="tutor_gender" id="tutor_gender" class="form-control" readonly="readonly"
+                                        <select name="tutor_gender" id="tutor_gender" class="form-control"
+                                                readonly="readonly"
                                                 required="required">
                                             @if($jobs->tutor_gender==1)
-                                                <option value="1" selected >Male</option>
+                                                <option value="1" selected>Male</option>
                                             @elseif($jobs->tutor_gender==2)
                                                 <option value="2" selected>Female</option>
                                             @elseif($jobs->tutor_gender==3)
@@ -217,7 +219,8 @@
                                 </div>
 
                             </div>
-                    </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

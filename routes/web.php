@@ -86,6 +86,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/application-request/{id}', 'ApplicationController@create');
     Route::get('/application-list', 'ApplicationController@index');
     Route::get('/online_application/{id}/view', 'ApplicationController@view');
-    Route::get('/online_application/{id}', 'ApplicationController@destroy');
+    Route::delete('/delete_online_application/{id}', 'ApplicationController@destroy');
 
 });

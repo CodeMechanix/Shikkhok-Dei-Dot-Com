@@ -48,7 +48,7 @@ class ApplicationController extends Controller
 
     public function destroy(Acl $acl, $id)
     {
-        dd(1);
+
         $acl->has_permissions('delete_online_application');
 
         $job_application = Application::find($id);
@@ -59,5 +59,6 @@ class ApplicationController extends Controller
             session()->flash('message', 'Somethings went\'s wrong');
             session()->flash('alert_tag', 'alert-danger');
         }
+        return redirect('/job-board');
     }
 }
