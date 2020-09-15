@@ -165,6 +165,39 @@
                         </a>
                     </li>
                 @endif
+                @if( $templateUser->is_system_user )
+                    <li class="menu-dropdown">
+                        <a href="#">
+                            <i class="fa fa-object-group"></i>
+                            <span>CMS</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="{{ url('sliders') }}">
+                                    <i class="fa fa-list-ul"></i>
+                                    Sliders List
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="{{ url('testimonials') }}">
+                                    <i class="fa fa-list-ul"></i>
+                                    Testimonials List
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="{{ url('teachers') }}">
+                                    <i class="fa fa-list-ul"></i>
+                                    Teacher List
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
             </ul>
             <!-- / .navigation -->
         </div>

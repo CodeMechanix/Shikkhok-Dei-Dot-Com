@@ -16,7 +16,7 @@
     <!-- ========== WELCOME END ========== -->
 
     <!-- ========== RECENT COURSES START ========== -->
-    @include('frontend.partials.recent_course_list')
+{{--    @include('frontend.partials.recent_course_list')--}}
     <!-- ========== RECENT COURSES END ========== -->
 
     <!-- ========== FEATURED TEACHERS START ========== -->

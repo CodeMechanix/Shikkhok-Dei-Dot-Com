@@ -10,25 +10,21 @@
                 <p><img src="{{ asset('frontend/images/offer1.png')}}" alt="" /></p>
                 <h3>Best Teachers</h3>
                 <p>Non ipsum vulputate condimentum eu id tellus. Praesent commodo arcu quis rhoncus porttitor. Suspendisse volutpat, quam eu rutrum laoreet, ex sapien pellentesque.</p>
-                <p><a href="#" target="_blank" class="btn btn-primary">Read More</a></p>
             </div>
             <div class="col-sm-3">
                 <p><img src="{{ asset('frontend/images/offer2.png')}}" alt="" /></p>
                 <h3>Video Courses</h3>
                 <p>Non ipsum vulputate condimentum eu id tellus. Praesent commodo arcu quis rhoncus porttitor. Suspendisse volutpat, quam eu rutrum laoreet, ex sapien pellentesque.</p>
-                <p><a href="#" target="_blank" class="btn btn-primary">Read More</a></p>
             </div>
             <div class="col-sm-3">
                 <p><img src="{{ asset('frontend/images/offer3.png')}}" alt="" /></p>
                 <h3>Audio Courses</h3>
                 <p>Non ipsum vulputate condimentum eu id tellus. Praesent commodo arcu quis rhoncus porttitor. Suspendisse volutpat, quam eu rutrum laoreet, ex sapien pellentesque.</p>
-                <p><a href="#" target="_blank" class="btn btn-primary">Read More</a></p>
             </div>
             <div class="col-sm-3">
                 <p><img src="{{ asset('frontend/images/offer4.png')}}" alt="" /></p>
                 <h3>Great Results</h3>
                 <p>Non ipsum vulputate condimentum eu id tellus. Praesent commodo arcu quis rhoncus porttitor. Suspendisse volutpat, quam eu rutrum laoreet, ex sapien pellentesque.</p>
-                <p><a href="#" target="_blank" class="btn btn-primary">Read More</a></p>
             </div>
         </div>
     </div>

@@ -2,16 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 // Clear Cache, Config, Route, View
 Route::get('/clear-all', function () {
@@ -27,11 +17,13 @@ Route::get('/clear-all', function () {
 Route::get('/', 'CmsController@index');
 Route::get('/about-us', 'CmsController@about_us');
 Route::get('/contact-us', 'CmsController@contact');
-Route::get('/teachers-list', 'CmsController@all_teachers');
-Route::get('/teacher-profile', 'CmsController@teacher_profile');
 Route::get('/login', 'CmsController@login')->name('login');
 Route::get('/sign-up', 'CmsController@signup');
 Route::get('/lost-password', 'CmsController@lost_password');
+
+// Get Teacher Details
+Route::get('/teacher/{slug}', 'TeacherController@get_teacher_details');
+Route::get('/teachers-list', 'TeacherController@all_teachers');
 
 // Sign-In, Sign-Up, Forget-Password Route
 Route::post('/signup', 'SignupController@signup');
@@ -87,5 +79,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/application-list', 'ApplicationController@index');
     Route::get('/online_application/{id}/view', 'ApplicationController@view');
     Route::delete('/delete_online_application/{id}', 'ApplicationController@destroy');
+
+    // CMS
+    Route::resource('/sliders', 'SlidersController')->except(['show']);
+    Route::resource('/testimonials', 'TestimonialController')->except(['show']);
+    Route::resource('/teachers', 'TeacherController')->except(['show']);
+
 
 });
