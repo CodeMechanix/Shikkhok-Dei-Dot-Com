@@ -18,6 +18,8 @@
           id="skin"/>
     <link href="{{ asset('backend/css/custom_css/dashboard1.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('backend/css/custom_css/dashboard1_timeline.css')}}" rel="stylesheet"/>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     @section('header_scripts')
     @show
 
@@ -34,10 +36,10 @@
 <header class="header">
     @include('backend.partials._navbar')
 </header>
-<div class="wrapper row-offcanvas row-offcanvas-left">
+<div class="wrapper row-offcanvas row-offcanvas-left" id="app">
 <!-- Left side column. contains the logo and sidebar -->
 @include('backend.partials._sidebar')
-<aside class="right-side">
+<aside class="right-side" id="app">
         <section class="content-header">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-5 col-xs-8">

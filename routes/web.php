@@ -37,6 +37,9 @@ Route::post('/user-login', 'AuthController@authenticate');
 
 Route::middleware(['auth'])->group(function () {
 
+    Route::get('video_chat', 'VideoChatController@index');
+    Route::post('auth/video_chat', 'VideoChatController@auth');
+
     Route::get('/dashboard', 'DashboardController@index');
 
     Route::get('logout', 'LogoutController@index');

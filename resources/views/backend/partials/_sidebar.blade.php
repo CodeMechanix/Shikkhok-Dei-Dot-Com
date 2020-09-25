@@ -198,6 +198,12 @@
                         </ul>
                     </li>
                 @endif
+                <li class="menu-dropdown">
+                        <a href="{{url('/video_chat')}}">
+                            <i class="fa fa-video-camera"></i>
+                            <span> Video Conference</span>
+                        </a>
+                    </li>
             </ul>
             <!-- / .navigation -->
         </div>
